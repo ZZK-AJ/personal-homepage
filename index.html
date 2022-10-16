@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+    <title>Zhikun Zhong's Homepage</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Zhikun Zhong is currently a student at PolyU">
+    <meta name="keywords" content="Zhikun Zhong, 钟智坤, PolyU">
+    <meta name="author" content="Zhikun Zhong"/>
+
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <link rel="stylesheet" href="Player/font/iconfont.css">
+    <link rel="stylesheet" href="Player/css/style.css">
+
+    <style>
+        .w3-sidebar a {
+            font-family: "Roboto", sans-serif
+        }
+
+        body, h1, h2, h3, h4, h5, h6, .w3-wide {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        body {
+            background-image: url('images/paper.gif');
+        }
+
+        .player_bottom {
+            float: right;
+            top: 0;
+            position: fixed;
+        }
+
+        #info {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #info td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #info tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #info tr:hover {
+            background-color: #ddd;
+        }
+
+        #info th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #5bc15e;
+            color: white;
+        }
+
+    </style>
+
+    <link rel="icon" type="image/png" href="images/head-logo.jpg">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("a").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+    //-->
+
+</head>
+
+
+<body class="w3-content" style="max-width:1000px">
+
+<div class="player_bottom" id="player">
+    <!-- 歌曲信息模块 -->
+    <div id="player-content1">
+        <div class="music-name"></div>
+        <div class="artist-name"></div>
+        <!-- 歌曲时间 -->
+        <div class="time">
+            <div class="current-time"></div>
+            <div class="total-time"></div>
+        </div>
+        <!-- 进度条 -->
+        <div id="s-area">
+            <!-- 鼠标移动到进度条上，显示的时间信息 -->
+            <div id="ins-time"></div>
+            <!-- 鼠标移动到进度条上，进度条变暗部分-->
+            <div id="s-hover"></div>
+            <!-- 表示当前歌曲播放进度的蓝色进度条 -->
+            <div id="seek-bar"></div>
+        </div>
+    </div>
+    <!-- 控制模块 -->
+    <div id="player-content2">
+        <!-- 左侧歌曲封面旋转模块 -->
+        <div class="music-imgs">
+            <!-- 封面图 -->
+            <div class="img"></div>
+            <!-- 歌曲缓冲时的提示文字 -->
+            <div id="buffer-box">缓冲…</div>
+        </div>
+        <!-- 右侧歌曲操作模块 -->
+        <div class="player-controls">
+            <!-- 上一首按钮 -->
+            <div class="btn prev iconfont">&#xe603;</div>
+            <!-- 暂停/播放 按钮 -->
+            <div class="btn play-pause icon-jiediankaishi iconfont"></div>
+            <!-- 下一首按钮 -->
+            <div class="btn next iconfont">&#xe602;</div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar/menu 侧边栏 -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-collapse w3-top w3-right" style="z-index:3;width:150px" id="mySidebar">
+    <div class="w3-container w3-display-container w3-padding-16">
+        <h3><b>ZHONG ZHIKUN Homepage</b></h3>
+    </div>
+    <div class="w3-padding-64 w3-text-light-grey w3-large" style="font-weight:bold">
+        <a href="#home" class="w3-bar-item w3-button">Home</a>
+        <a href="#information" class="w3-bar-item w3-button">Info</a>
+        <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+        <a href="#skills" class="w3-bar-item w3-button">Skills</a>
+    </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+    <div class="w3-bar-item w3-padding-24">Zhong Zhikun</div>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right"
+       style="font-stretch: extra-expanded;" onclick="w3_open()"><b>≡</b></a>
+
+
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+     id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:150px">
+
+    <!-- Push down content on small screens -->
+    <div class="w3-hide-large" style="margin-top:83px"></div>
+
+    <!-- The Home Section -->
+    <div class="w3-container w3-center w3-padding-32" id="home">
+        <img style="width: 50%;max-width: 120px" alt="profile photo" src="images/zzk.jpg">
+        <h1>Zhong Zhikun</h1>
+        <p class="w3-justify"
+           style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
+            I am a student at <a href="https://www.polyu.edu.hk/">PolyU</a>, HONG KONG, where I work on software
+            development, deep learning, etc. Before that, I did my bachelor degree at GDUT, <a
+                href="https://www.gdut.edu.cn/">Guangdong University of Technology</a>.
+        </p>
+        <p class="w3-center">
+            <a href="mailto:1129419956@qq.com">Email</a> &nbsp/&nbsp
+            <a href="https://github.com/ZZK-AJ"> Github </a>
+        </p>
+        </tbody></table>
+    </div>
+
+    <!-- The information Section -->
+    <div class="w3-container w3-padding-32" id="information">
+        <h2>Info</h2>
+        <!-- <p><li> 06/2017-10/2018, worked at  <a href="https://www.vip.com/">VIP.com(唯品会)</a> as a backend software engineer. </li></p>
+        <p><li> 03/2019-9/2021, worked at  <a href="https://www.tencent.com/">Tencent(腾讯)</a> as a fullstack software engineer. </li></p>
+        <p><li> 09/2021-now, as a student in  <a href="https://www.polyu.edu.hk/">PolyU</a>. </li></p> -->
+
+        <table id="info">
+            <tr>
+                <th> Time</th>
+                <th> Company</th>
+                <th> Job</th>
+                <th> City</th>
+            </tr>
+            <tr>
+                <td>06/2017-10/2018</td>
+                <td><a href="https://www.vip.com/">VIP.com(唯品会)</a></td>
+                <td>Backend engineer</td>
+                <td>Gugang Zhou</td>
+            </tr>
+            <tr>
+                <td>03/2019-9/2021</td>
+                <td><a href="https://www.tencent.com/">Tencent(腾讯)</a></td>
+                <td>fullstack software engineer</td>
+                <td>Shen zhen</td>
+            </tr>
+            <tr>
+                <td>09/2021-now</td>
+                <td><a href="https://www.polyu.edu.hk/">PolyU</a></td>
+                <td>student</td>
+                <td>HONG KONG</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- The Projects Section 项目-->
+    <div class="w3-container w3-padding-32" id="projects">
+        <h2>Recent Projects</h2>
+        <p class="w3-justify">
+            My main interests are in back-end development, cloud computing development, big data development, etc. At
+            the same time, I have an understanding in the direction of financial technology and I am working hard in
+            this direction.
+        </p>
+
+        <h3>
+            <li>Prepaid card trading platform and management system</li>
+        </h3>
+        <p class="w3-justify">
+            <a style="color: #447ec9" href="https://github.com/ZZK-AJ/icbc-intern">Project Page</a>
+        </p>
+
+        <p class="w3-justify">
+        <p><strong>A prepaid card</strong> is a kind of consumption voucher that pre-sells multiple services for a
+            period of time in the future to customers at one time, and gives discounts or discounts on the price. Such
+            as fitness card, beauty care card, swimming card and so on.</p>
+
+        <p>Although prepaid cards are widely used, there are also problems such as merchants running away and illegal
+            fundraising. In response to the above problems, we plan to design and implement a prepaid card trading
+            platform and management system.</p>
+
+        <p><span style="color:red">The feature of the system is that merchants need to apply through a third party to issue a prepaid card, and the third party keeps the consumer's capital flow and guarantees the consumer's card purchase, consumption, recharge, and card return operations.</span>
+        </p>
+        </p>
+        <br>
+        <p>
+            <img style="width:96%;" src="images/prepaycard.png">
+        </p>
+    </div>
+
+    <!-- The skills Section -->
+    <div class="w3-container w3-padding-32" id="skills">
+        <h2>Skills</h2>
+        <!-- <p><li><h3>As a trainee knowledge</h3></li></p> -->
+        <p>Java</p>
+        <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
+        </div>
+        <p>JavaScript</p>
+        <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:60%">
+                <div class="w3-center w3-text-white">60%</div>
+            </div>
+        </div>
+        <p>MySQL</p>
+        <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+        </div>
+        <p>Golang</p>
+        <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
+        </div>
+        <p>K8s</p>
+        <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+        </div>
+    </div>
+
+    <!-- End page content -->
+
+    <div class="w3-container w3-padding-32 w3-center">created by zhong zhikun</div>
+
+</div>
+
+</div>
+
+<script>
+    // Open and close sidebar
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="Player/js/index.js"></script>
+
+</body>
+
+
+</html>
